@@ -1,0 +1,2 @@
+# Keep LF line endings on every machine. The hook scripts in .githooks break with CRLF.
+* text=auto eol=lf

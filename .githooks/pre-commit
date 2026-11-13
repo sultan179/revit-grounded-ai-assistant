@@ -1,0 +1,13 @@
+#!/bin/sh
+# Refuses a commit whose staged changes contain something that looks like a secret.
+# Enable the hooks once per clone:  git config core.hooksPath .githooks
+if ! command -v gitleaks >/dev/null 2>&1; then
+    echo "pre-commit: gitleaks is not installed, so the secret scan cannot run. Commit refused." >&2
+    exit 1
+fi
+# Make sure git can read the staged changes at all; a scan of nothing would pass.
+if ! git diff --cached --no-ext-diff >/dev/null; then
+    echo "pre-commit: cannot read the staged changes. Commit refused." >&2
+    exit 1
+fi
+exec gitleaks git --pre-commit --staged --redact --no-banner

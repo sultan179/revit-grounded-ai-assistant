@@ -1,0 +1,4 @@
+#!/bin/sh
+# Refuses a push that contains a word from the private list. See tools/check_push.py.
+# Enable the hooks once per clone:  git config core.hooksPath .githooks
+exec uv run --no-project python tools/check_push.py

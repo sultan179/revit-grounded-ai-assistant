@@ -1,0 +1,37 @@
+# Secrets and local settings. Only the example file is ever committed.
+.env
+.env.*
+!.env.example
+.envrc
+*.pem
+*.key
+
+# Call logs and outputs of real model runs on this machine.
+runs/
+
+# Local tool settings (they can hold local paths).
+.claude/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+*.egg-info/
+build/
+dist/
+
+# Tool caches
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.hypothesis/
+.coverage
+htmlcov/
+requirements-audit.txt
+
+# Editors and operating systems
+.vscode/
+.idea/
+Thumbs.db
+desktop.ini
+.DS_Store
